@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- 
+This is a sample program for someone at X to review, and hopefully play, that was put together to
+demonstrate basic competency while also having some fun reliving a favorite classic. I can get
+about 15k points without too much struggle. It's not as clean an implementation as I would like
+but well enough for what it is. Have fun. I did coding it.
+-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Asteriods</title>
+    <style>
+        body {
+            background-color: black; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; 
+            margin: 0; 
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); 
+        }
+
+        #instructions {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); 
+        }
+
+        canvas { 
+            border: 1px solid white; 
+        }
+
+        #focusTarget { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 1px; 
+            height: 1px; 
+            opacity: 0; 
+        } 
+    </style>
+</head>
+
+<body onload="Asteriods.start(); document.getElementById('focusTarget').focus();"> 
+    <h1>Java Rocks</h1> 
+    <canvas id="gameCanvas" width="320" height="300"></canvas>
+    <div id="instructions">
+        <p>Use z anx x to rotate</p>
+        <p>Use , (comma) to thrust and . (dot) to fire</p>
+        <p>Press spacebar to start a new game or launch next ship</p>
+    </div>
+    <span id="focusTarget" tabindex="-1"></span> 
+    <script src="Asteriods.js"></script> 
+</body>
+
+</html>
