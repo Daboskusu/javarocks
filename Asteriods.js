@@ -7,7 +7,7 @@
 // pdefrain@gmail.com
 // https://www.linkedin.com/in/pauldefrain/
 // 
-onst SCREENWIDTH = 320;
+const SCREENWIDTH = 320;
 const SCREENHEIGHT = 300;
 
 const WIDTH = 320;
