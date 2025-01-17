@@ -8,6 +8,15 @@ but well enough for what it is. Have fun. I did coding it.
 <html>
 <head>
     <meta charset="UTF-8">
+    <style>
+        .round-red-button {
+          width: 50px; /* Adjust size as needed */
+          height: 50px;
+          border-radius: 50%; /* Creates a circle */
+          background-color: red; 
+          border: none; /* Removes default button border */
+        }
+      </style>    
     <title>Asteriods</title>
     <style>
         body {
@@ -58,16 +67,16 @@ but well enough for what it is. Have fun. I did coding it.
         <p>Press space to start a new game or launch next ship</p>
     </div>
     <div class="button-container"> 
-        <button id="leftButton" onmousedown="Asteriods.handleCCWHold()" onmouseup="Asteriods.handleCCWHoldEnd()" ontouchstart="Asteriods.handleCCWHold()" ontouchend="Asteriods.handleCCWHoldEnd()">left</button>
+        <button class="round-red-button" id="leftButton" onmousedown="Asteriods.handleCCWHold()" onmouseup="Asteriods.handleCCWHoldEnd()" ontouchstart="Asteriods.handleCCWHold()" ontouchend="Asteriods.handleCCWHoldEnd()">left</button>
         <span>----</span>
-        <button id="rightButton" onmousedown="Asteriods.handleCWHold()" onmouseup="Asteriods.handleCWHoldEnd()" ontouchstart="Asteriods.handleCWHold()" ontouchend="Asteriods.handleCWHoldEnd()">right</button>
+        <button class="round-red-button" id="rightButton" onmousedown="Asteriods.handleCWHold()" onmouseup="Asteriods.handleCWHoldEnd()" ontouchstart="Asteriods.handleCWHold()" ontouchend="Asteriods.handleCWHoldEnd()">right</button>
         <span>-----------</span>
-        <button id="thrustButton" onmousedown="Asteriods.handleThrustHold()" onmouseup="Asteriods.handleThrustHoldEnd()" ontouchstart="Asteriods.handleThrustHold()" ontouchend="Asteriods.handleThrustHoldEnd()">thrust</button>
+        <button class="round-red-button" id="thrustButton" onmousedown="Asteriods.handleThrustHold()" onmouseup="Asteriods.handleThrustHoldEnd()" ontouchstart="Asteriods.handleThrustHold()" ontouchend="Asteriods.handleThrustHoldEnd()">thrust</button>
         <span>----</span>
-        <button onclick="Asteriods.handleFireTap(0)">fire</button>
+        <button class="round-red-button" onclick="Asteriods.handleFireTap(0)">fire</button>
     </div>
     <div>--------</div>
-    <button onclick="Asteriods.handleSpace(0)">start</button>
+    <button class="round-red-button" onclick="Asteriods.handleSpace(0)">start</button>
     </div>
     <span id="focusTarget" tabindex="-1"></span> 
     <script src="Asteriods.js"></script> 
