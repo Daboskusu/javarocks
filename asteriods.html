@@ -53,9 +53,21 @@ but well enough for what it is. Have fun. I did coding it.
     <h1>Java Rocks</h1> 
     <canvas id="gameCanvas" width="320" height="300"></canvas>
     <div id="instructions">
-        <p>Use z anx x to rotate</p>
-        <p>Use , (comma) to thrust and . (dot) to fire</p>
-        <p>Press spacebar to start a new game or launch next ship</p>
+        <p>Keyboard Controls</p>
+        <p>Use z anx x to rotate, comma (,) to thrust, and dot (.) to fire</p>
+        <p>Press space to start a new game or launch next ship</p>
+    </div>
+    <div class="button-container"> 
+        <button id="leftButton" onmousedown="Asteriods.handleCCWHold()" onmouseup="Asteriods.handleCCWHoldEnd()" ontouchstart="Asteriods.handleCCWHold()" ontouchend="Asteriods.handleCCWHoldEnd()">left</button>
+        <span>----</span>
+        <button id="rightButton" onmousedown="Asteriods.handleCWHold()" onmouseup="Asteriods.handleCWHoldEnd()" ontouchstart="Asteriods.handleCWHold()" ontouchend="Asteriods.handleCWHoldEnd()">right</button>
+        <span>-----------</span>
+        <button id="thrustButton" onmousedown="Asteriods.handleThrustHold()" onmouseup="Asteriods.handleThrustHoldEnd()" ontouchstart="Asteriods.handleThrustHold()" ontouchend="Asteriods.handleThrustHoldEnd()">thrust</button>
+        <span>----</span>
+        <button onclick="Asteriods.handleFireTap(0)">fire</button>
+    </div>
+    <div>--------</div>
+    <button onclick="Asteriods.handleSpace(0)">start</button>
     </div>
     <span id="focusTarget" tabindex="-1"></span> 
     <script src="Asteriods.js"></script> 
