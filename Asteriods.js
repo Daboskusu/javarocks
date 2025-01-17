@@ -266,7 +266,6 @@ var Asteriods = {
    beatCount: 0,
 
    onKeyDown: function (event) {
-      console.log("Key down:", event.keyCode);
       switch (event.keyCode) {
          case Key.LEFT:
             this.handleCCWHold(event);
@@ -281,24 +280,26 @@ var Asteriods = {
             this.handleThrustHold(event);
             break;
          case Key.SPACE:
-            if (GameOver == true) {
-               // Start new game.
-               this.initializeRocks(3);
-               this.initializeShip(3);
-               Asteriods.launchShip();
-               GameOver = false;
-            } else if (!Ship.active) {
-               if (Ship.lives > 0 && Ship.restore <= 0) {
-                  this.launchShip();
-               }
-            }
+            this.handleSpace(event);
             break;
       }
    },
 
+   handleSpace: function(event) {
+      if (GameOver == true) {
+         // Start new game.
+         this.initializeRocks(3);
+         this.initializeShip(3);
+         Asteriods.launchShip();
+         GameOver = false;
+      } else if (!Ship.active) {
+         if (Ship.lives > 0 && Ship.restore <= 0) {
+            this.launchShip();
+         }
+      }
+   },
 
    onKeyUp: function (event) {
-      console.log("Key up:", event.keyCode);
       switch (event.keyCode) {
          case Key.LEFT:
             this.handleCCWHoldEnd(event);
@@ -449,7 +450,7 @@ var Asteriods = {
    score: function (score) {
       if (Ship.active) {
          CurrentScore += score;
-         if (CurrentScore > FreeShip) {
+         if (CurrentScore >= FreeShip) {
             Ship.lives++;
             FreeShip += 10000;
             this.playSound(SOUND_FREE_SHIP);
@@ -1432,4 +1433,3 @@ var Asteriods = {
    },
 
 };
-
