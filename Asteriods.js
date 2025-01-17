@@ -7,13 +7,10 @@
 // pdefrain@gmail.com
 // https://www.linkedin.com/in/pauldefrain/
 // 
-const SCREENWIDTH = 320;
-const SCREENHEIGHT = 300;
 
 const WIDTH = 320;
 const HEIGHT = 300;
 const RMULT = 10;
-const SPEED = 1;
 const MAXSHOTS = 8;
 const MAXASHOTS = 8;
 const SHOTLIFE = 80;
@@ -44,6 +41,7 @@ NoRocks = 0;
 RockCount = 3;
 // The score at which the next free ship is earned
 FreeShip = 10000;
+// When trus, the game will produce sounds
 ProduceSound = true;
 
 // Game color palette
@@ -242,7 +240,7 @@ var Key = {
 
 
 //
-// Asteriods ganme object
+// Asteriods game object
 //
 var Asteriods = {
    fps: 60,
@@ -421,7 +419,6 @@ var Asteriods = {
         return 0; 
       }
     },
-    
 
    // Game startup
    start: function () {
@@ -718,12 +715,6 @@ var Asteriods = {
    },
 
 
-   handleCCWTap: function (event) {
-      Ship.ccwHeld = false;
-      this.applyCCW();
-   },
-
-
    handleCCWHold: function (event) {
       Ship.ccwHeld = true;
       this.applyCCW();
@@ -742,12 +733,6 @@ var Asteriods = {
             Ship.angle = 0;
          }
       }
-   },
-
-
-   handleCWTap: function (event) {
-      Ship.cwHeld = false;
-      this.applyCW();
    },
 
 
@@ -868,12 +853,6 @@ var Asteriods = {
    },
 
 
-   handleThrustTap: function (event) {
-      Ship.thrustHeld = false;
-      this.applyThrust();
-   },
-
-
    handleThrustHold: function (event) {
       if(!Ship.thrustHeld) {
          this.playSound(SOUND_SHIP_THRUST);
@@ -886,12 +865,6 @@ var Asteriods = {
    handleThrustHoldEnd: function (event) {
       this.playSound(SOUND_SHIP_THRUST, false);
       Ship.thrustHeld = false;
-   },
-
-
-   square: function () {
-      this.context.fillStyle = ColorGreen;
-      this.context.fillRect(10, 10, 55, 50);
    },
 
 
@@ -910,21 +883,6 @@ var Asteriods = {
       Ship.restore = 0;
       Ship.thrustOn = false;
       CurrentScore = 0;
-   },
-
-
-   // Places ship into an inactive on-screen and ready state.
-   readyShip: function () {
-      Ship.x = RMULT * WIDTH / 2;
-      Ship.y = RMULT * HEIGHT / 2;
-      Ship.xinc = 0;
-      Ship.yinc = 0;
-      Ship.angle = 270;
-      Ship.thrustHeld = false;
-      Ship.ccwHeld = false;
-      Ship.cwHeld = false;
-      Ship.restore = 0;
-      Ship.thrustOn = false;
    },
 
 
@@ -1224,23 +1182,6 @@ var Asteriods = {
    },
 
 
-   linesIntersect: function (x1, y1, x2, y2, x3, y3, x4, y4) {
-      var n1 = (x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3);
-      var d1 = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
-      var n2 = (x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3);
-      var d2 = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
-
-      if (d1 != 0 && d2 != 0) {
-         var u1 = n1 / d1;
-         var u2 = n2 / d2;
-         if ((u1 >= 0.0 && u1 <= 1.0) && (u2 >= 0.0 && u2 <= 1.0)) {
-            return true;
-         }
-      }
-      return false;
-   },
-
-
    explodeShip: function () {
       Ship.active = false;
       Ship.restore = 200;
@@ -1313,10 +1254,10 @@ var Asteriods = {
                if (d.angle < 0) d.angle += 360;
                if (d.angle > 360) d.angle -= 360;
 
-               if (d.x < 0) d.x += RMULT * SCREENWIDTH;
-               if (d.x > RMULT * SCREENWIDTH) d.x -= RMULT * SCREENWIDTH;
-               if (d.y < 0) d.y += RMULT * SCREENHEIGHT;
-               if (d.y > RMULT * SCREENHEIGHT) d.y -= RMULT * SCREENHEIGHT;
+               if (d.x < 0) d.x += RMULT * WIDTH;
+               if (d.x > RMULT * WIDTH) d.x -= RMULT * WIDTH;
+               if (d.y < 0) d.y += RMULT * HEIGHT;
+               if (d.y > RMULT * HEIGHT) d.y -= RMULT * HEIGHT;
             }
             else {
                d.active = false;
