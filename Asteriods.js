@@ -1,12 +1,7 @@
-// Coded 01/2025 by Paul DeFrain so I might have something to put on GitHub as an example.
-// Most of what I code is proprietary and on a massive scale (tens of millions of LOC) and
-// can't be shared. This is compact, portable, and fun. Enjoy.
-//
 // @daboskusu on X
 // pauldefrain@yahoo.com
 // pdefrain@gmail.com
 // https://www.linkedin.com/in/pauldefrain/
-// 
 
 const WIDTH = 320;
 const HEIGHT = 300;
